@@ -1,24 +1,42 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
+      <ion-icon name="list-circle" class="ion-margin-end"></ion-icon>
       Lista de Tarefas
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <h1>Tarefas em aberto</h1>
+  <div class="header-container">
+    <h1 class="ion-text-center ion-margin-bottom">
+      <ion-icon name="today" class="ion-margin-end"></ion-icon>
+      Tarefas em aberto
+    </h1>
+  </div>
 
-  <ion-list>
+  <ion-list lines="full" class="task-list">
+    <ion-item *ngFor="let item of dataService.items" class="task-item">
+      <ion-label>{{ item }}</ion-label>
+      <ion-icon name="checkmark-circle" slot="end" color="success"></ion-icon>
+    </ion-item>
     
-    <ion-item *ngFor="let item of dataService.items">
-      {{ item }}
+    <ion-item *ngIf="dataService.items.length === 0" class="empty-state">
+      <ion-label class="ion-text-center">
+        <ion-icon name="sad" size="large"></ion-icon>
+        <h2>Nenhuma tarefa encontrada</h2>
+        <p>Clique no botão abaixo para adicionar uma nova tarefa</p>
+      </ion-label>
     </ion-item>
   </ion-list>
 
-  <ion-button (click)="getNext()">Nova tarefa</ion-button>
+  <div class="fab-container">
+    <ion-button (click)="getNext()" shape="round" color="primary" class="ion-float-right">
+      <ion-icon slot="start" name="add"></ion-icon>
+      Nova tarefa
+    </ion-button>
+  </div>
 </ion-content>
 
     
-    <ion-button (click)="getNext()">Nova tarefa</ion-button>
-  </ion-content>
+   

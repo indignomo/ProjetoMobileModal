@@ -1,0 +1,36 @@
+.form-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    
+    .input-item {
+      --background: transparent;
+      margin: 2rem 0;
+      
+      ion-input {
+        --background: #ffffff;
+        --padding-start: 1rem;
+        --border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+      
+      ion-icon {
+        color: var(--ion-color-primary);
+        margin-right: 0.5rem;
+      }
+    }
+  }
+  
+  .button-group {
+    margin-top: 3rem;
+    
+    ion-button[color="primary"] {
+      --box-shadow: 0 4px 12px rgba(var(--ion-color-primary-rgb), 0.3);
+      --padding-top: 1.2rem;
+      --padding-bottom: 1.2rem;
+      font-weight: 600;
+    }
+    
+    ion-button[fill="clear"] {
+      margin-top: 1rem;
+    }
+  }
